@@ -1,12 +1,16 @@
 package main
 
-import "fmt"
+import (
+	"bufio"
+	"fmt"
+	"os"
+)
 
 func main() {
 	fmt.Println("******************")
 
 	rover := rover{
-		roverState: NorthState{
+		roverState: EastState{
 			coordinate: &coordinate{
 				X: 1,
 				Y: 1,
@@ -14,7 +18,28 @@ func main() {
 		},
 	}
 
-	for i := 0; i < 2; i++ {
-		rover.goForward()
+	reader := bufio.NewReader(os.Stdin)
+
+	for {
+		char, _, err := reader.ReadRune()
+
+		if err != nil {
+			fmt.Println(err)
+		}
+
+		switch char {
+		case 'R':
+			rover.TurnRight()
+			break
+		case 'L':
+			rover.TurnLeft()
+			break
+		case 'F':
+			rover.goForward()
+			break
+		case 'B':
+			rover.goBack()
+			break
+		}
 	}
 }
