@@ -2,7 +2,9 @@ package helper
 
 import (
 	"bufio"
+	"fmt"
 	"os"
+	"strings"
 )
 
 func ReadTextFromConsole() (text string, err error) {
@@ -13,6 +15,9 @@ func ReadTextFromConsole() (text string, err error) {
 	if err != nil {
 		return text, err
 	}
+
+	text = strings.TrimSpace(text)
+	fmt.Println(len(text))
 
 	return text, nil
 
