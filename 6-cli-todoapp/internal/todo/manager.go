@@ -89,3 +89,16 @@ func loadTasks() {
         }
     }
 }
+
+func MarkDone(id int) {
+    for i, task := range tasks {
+        if task.ID == id {
+            tasks[i].Done = true
+            saveTasks()
+            fmt.Println("Görev tamamlandı.")
+            return
+        }
+    }
+    fmt.Println("Görev bulunamadı.")
+}
+

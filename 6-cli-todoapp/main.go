@@ -17,6 +17,7 @@ func main() {
         fmt.Println("1. Görevleri Listele")
         fmt.Println("2. Yeni Görev Ekle")
         fmt.Println("3. Görev Sil")
+		fmt.Println("4. Görev Tamamla")
         fmt.Println("0. Çıkış")
         fmt.Print("Seçim: ")
 
@@ -37,6 +38,12 @@ func main() {
             idStr := scanner.Text()
             id, _ := strconv.Atoi(idStr)
             todo.DeleteTask(id)
+		case "4":
+			fmt.Print("Tamamlanacak Görev ID: ")
+			scanner.Scan()
+			idStr := scanner.Text()
+			id, _ := strconv.Atoi(idStr)
+			todo.MarkDone(id)
         case "0":
             fmt.Println("Çıkılıyor...")
             return
