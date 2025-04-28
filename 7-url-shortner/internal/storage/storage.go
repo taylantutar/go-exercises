@@ -7,7 +7,7 @@ type Storage struct {
 	urls map[string]string
 }
 
-func NewStore() *Storage {
+func NewStorage() *Storage {
 	return &Storage{
 		urls: make(map[string]string),
 	}
